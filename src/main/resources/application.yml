@@ -8,3 +8,16 @@ spring:
   cloud:
     config:
       uri: http://localhost:8888
+
+resilience4j:
+  retry:
+    instances:
+      basic:
+        maxRetryAttemps: 5
+        waitDuration: 3s
+
+      intervalFunctionExponentialExample:
+        enableExponentialBackoff: true
+        exponentialBackoffMultiplier: 2
+        maxRetryAttempts: 6
+        waitDuration: 2s
